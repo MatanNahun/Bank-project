@@ -1,15 +1,22 @@
+import requests
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import uvicorn
-import requests
+from queries import get_all_transactions
 
 app = FastAPI()
 
 
 @app.get("/")
 def sanity():
+    get_all_transactions()
     return {"message": "Server is up and running in sanity"}
+
+
+@app.get("/transactions")
+def getTransactions():
+    return get_all_transactions()
 
 
 origins = ["http://localhost", "http://localhost:3000", "http://localhost:8000"]

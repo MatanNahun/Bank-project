@@ -6,3 +6,7 @@ USE bank_transactions;
 --     category VARCHAR(255),
 --     vendor VARCHAR(255)
 -- );
+
+--  INSERT INTO transactions VALUES (null, "iphone", 30, 'electronic', "dekel")
+
+SELECT * FROM transactions
