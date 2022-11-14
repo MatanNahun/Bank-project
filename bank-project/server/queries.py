@@ -25,16 +25,14 @@ def get_all_transactions():
         print(e)
 
 
-def add_transaction():
+def add_transaction(name, amount, category, vendor):
     try:
         with connection.cursor() as cursor:
             query = f"""
-                    SELECT *
-                    FROM transactions
+                    INSERT INTO transactions VALUES (null, '{name}', {amount}, '{category}', '{vendor}' )
                     """
             cursor.execute(query)
             result = cursor.fetchall()
             print(result)
-            return result
     except Exception as e:
         print(e)

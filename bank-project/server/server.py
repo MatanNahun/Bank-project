@@ -1,9 +1,8 @@
 import requests
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-
-from queries import get_all_transactions
+from queries import get_all_transactions, add_transaction
 
 app = FastAPI()
 
@@ -17,6 +16,17 @@ def sanity():
 @app.get("/transactions")
 def getTransactions():
     return get_all_transactions()
+
+
+@app.post("/transactions")
+async def addTransactions(request: Request):
+    req = await request.json()
+    print(req["name"])
+    print(req["amount"])
+    print(req["category"])
+    print(req["vendire"])
+    add_transaction(req["name"], req["amount"], req["category"], req["vendire"])
+    return req
 
 
 origins = ["http://localhost", "http://localhost:3000", "http://localhost:8000"]
