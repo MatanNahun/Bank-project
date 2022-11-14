@@ -19,12 +19,23 @@ def getTransactions():
 
 
 @app.post("/transactions")
-async def addTransactions(request: Request):
+async def addTransaction(request: Request):
     req = await request.json()
-    print(req["name"])
-    print(req["amount"])
-    print(req["category"])
-    print(req["vendire"])
+    # print(req["name"])
+    # print(req["amount"])
+    # print(req["category"])
+    # print(req["vendire"])
+    add_transaction(req["name"], req["amount"], req["category"], req["vendire"])
+    return req
+
+
+@app.delete("/transactions")
+async def deleteTransaction(request: Request):
+    req = await request.json()
+    # print(req["name"])
+    # print(req["amount"])
+    # print(req["category"])
+    # print(req["vendire"])
     add_transaction(req["name"], req["amount"], req["category"], req["vendire"])
     return req
 

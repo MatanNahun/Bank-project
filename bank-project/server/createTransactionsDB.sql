@@ -1,3 +1,3 @@
--- CREATE DATABASE bank_transactions;
+-- CREATE DATABASE bank;
 
--- Drop DATABASE transactions;
+-- Drop DATABASE bank_transactions;

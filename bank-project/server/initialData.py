@@ -1,0 +1,1 @@
+categoriesInitialData = ["transportation", "food", "entertainment"]
