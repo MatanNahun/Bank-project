@@ -19,24 +19,23 @@ USE bank;
 --     category VARCHAR(255),
 --     vendor VARCHAR(255),
 --     user_id INT,
---     category_id INT,
 
 --     FOREIGN KEY(user_id) REFERENCES users(id)
 -- );
 
---  INSERT INTO transactions() VALUES (null, "iphone", 30, 'electronic', "dekel", 1 )
 
--- SELECT * FROM categories
-
--- INSERT INTO users(name, balance) VALUES ( "Matan", 0 );
+SELECT * FROM transactions
 
 
--- DELETE FROM transactions WHERE t_id = 9 
+
+
+-- DELETE FROM transactions WHERE id = 21 
 
 
 
 
 -- INSERT INTO users( balance) VALUES(0);
+
 
 
 

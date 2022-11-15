@@ -23,22 +23,29 @@ class Transactions:
                         INSERT INTO transactions(name, amount, category, vendor, user_id) VALUES ( '{name}', {amount}, '{category}', '{vendor}', 1 )
                         """
                 cursor.execute(query)
+                result = cursor.fetchall()
                 connection.commit()
+                print(result)
         except Exception as e:
             print(e)
 
-    # def delete_transaction(transaction):
-    #     try:
-    #         with connection.cursor() as cursor:
-    #             query = f"""
-    #                     INSERT INTO transactions(name, amount, category, vendor, user_id) VALUES ( '{name}', {amount}, '{category}', '{vendor}', 1 )
-    #                     """
-    #             cursor.execute(query)
-    #             connection.commit()
-    #     except Exception as e:
-    #         print(e)
+    def delete_transaction(transactionID):
+        try:
+            with connection.cursor() as cursor:
+                query = f"""
+                        DELETE FROM transactions WHERE id = '{transactionID}' 
+                        """
+                cursor.execute(query)
+                result = cursor.fetchall()
+                connection.commit()
+                print(result)
+        except Exception as e:
+            print(e)
 
 
 # Transactions.add_transaction("car", 10, "music", "dekel")
 
 # Transactions.get_all_transactions()
+
+
+# Transactions.delete_transaction(22)

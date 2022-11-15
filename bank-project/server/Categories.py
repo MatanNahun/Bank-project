@@ -10,7 +10,10 @@ class Categories:
                 with connection.cursor() as cursor:
                     query = f'INSERT INTO categories(name) VALUES("{category}");'
                     cursor.execute(query)
+                    result = cursor.fetchall()
+
                     connection.commit()
+                    print(result)
             except Exception as e:
                 print(e)
 
@@ -27,16 +30,7 @@ class Categories:
         except Exception as e:
             print(e)
 
-    def delete_transaction():
-        try:
-            with connection.cursor() as cursor:
-                query = f'INSERT INTO categories(name) VALUES("{category}");'
-                cursor.execute(query)
-                connection.commit()
-        except Exception as e:
-            print(e)
-
 
 # Categories.insert_categories()
 
-Categories.get_all_categories()
+# Categories.get_all_categories()
