@@ -1,1 +1,1 @@
-categoriesInitialData = ["transportation", "food", "entertainment"]
+categoriesInitialData = ["transportation", "food", "entertainment", "other"]

@@ -20,10 +20,6 @@ def getTransactions():
 @app.post("/transactions")
 async def addTransaction(request: Request):
     req = await request.json()
-    # print(req["name"])
-    # print(req["amount"])
-    # print(req["category"])
-    # print(req["vendire"])
     Transactions.add_transaction(
         req["name"], req["amount"], req["category"], req["vendor"]
     )
@@ -37,6 +33,11 @@ async def deleteTransaction(request: Request):
 
     Transactions.delete_transaction(req["id"])
     return req
+
+
+@app.get("/transactions/categories")
+def getBreakdownTransctionsByCategory():
+    return Transactions.getBreakdownTransctionsByCategory()
 
 
 origins = ["http://localhost", "http://localhost:8000"]

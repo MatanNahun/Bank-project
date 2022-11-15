@@ -1,11 +1,15 @@
 from connectionToDB import connection
 
-categoriesInitialData = ["transportation", "food", "entertainment"]
+# need to check this import
+from initialData import categoriesInitialData
+
+
+categoriesInitialator = ["transportation", "food", "entertainment", "clothes", "other"]
 
 
 class Categories:
     def insert_categories():
-        for category in categoriesInitialData:
+        for category in categoriesInitialator:
             try:
                 with connection.cursor() as cursor:
                     query = f'INSERT INTO categories(name) VALUES("{category}");'
