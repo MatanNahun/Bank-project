@@ -1,9 +1,5 @@
 from connectionToDB import connection
 
-# need to check this import
-from initialData import categoriesInitialData
-
-
 categoriesInitialator = ["transportation", "food", "entertainment", "clothes", "other"]
 
 
@@ -15,7 +11,6 @@ class Categories:
                     query = f'INSERT INTO categories(name) VALUES("{category}");'
                     cursor.execute(query)
                     result = cursor.fetchall()
-
                     connection.commit()
                     print(result)
             except Exception as e:

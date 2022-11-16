@@ -2,9 +2,11 @@ import requests
 import uvicorn
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from Transcations import Transactions
+from routers import transactions_api
+
 
 app = FastAPI()
+app.include_router(transactions_api.router)
 
 
 @app.get("/")
@@ -12,32 +14,30 @@ def sanity():
     return {"message": "Server is up and running in sanity"}
 
 
-@app.get("/transactions")
-def getTransactions():
-    return Transactions.get_all_transactions()
+# @app.get("/transactions")
+# def getTransactions():
+#     return Transactions.get_all_transactions()
 
 
-@app.post("/transactions")
-async def addTransaction(request: Request):
-    req = await request.json()
-    Transactions.add_transaction(
-        req["name"], req["amount"], req["category"], req["vendor"]
-    )
-    return req
+# @app.post("/transactions")
+# async def addTransaction(request: Request):
+#     req = await request.json()
+#     Transactions.add_transaction(
+#         req["name"], req["amount"], req["category"], req["vendor"]
+#     )
+#     return req
 
 
-@app.delete("/transactions")
-async def deleteTransaction(request: Request):
-    req = await request.json()
-    print(req["id"])
-
-    Transactions.delete_transaction(req["id"])
-    return req
+# @app.delete("/transactions")
+# async def deleteTransaction(request: Request):
+#     req = await request.json()
+#     Transactions.delete_transaction(req["id"])
+#     return req
 
 
-@app.get("/transactions/categories")
-def getBreakdownTransctionsByCategory():
-    return Transactions.getBreakdownTransctionsByCategory()
+# @app.get("/transactions/categories")
+# def getBreakdownTransctionsByCategory():
+#     return Transactions.getBreakdownTransctionsByCategory()
 
 
 origins = ["http://localhost", "http://localhost:8000"]

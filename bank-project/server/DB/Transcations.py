@@ -1,4 +1,4 @@
-from connectionToDB import connection
+from DB.connectionToDB import connection
 
 
 class Transactions:
@@ -19,26 +19,39 @@ class Transactions:
     def add_transaction(name, amount, category, vendor):
         try:
             with connection.cursor() as cursor:
-                query = f"""
+                queryInsertTranscation = f"""
                         INSERT INTO transactions(name, amount, category, vendor, user_id) VALUES ( '{name}', {amount}, '{category}', '{vendor}', 1 )
                         """
-                cursor.execute(query)
+                queryUpdateUserBalance = f"""
+                        UPDATE users SET balance = balance + {amount} WHERE id = 1
+                        """
+                cursor.execute(queryInsertTranscation)
+                cursor.execute(queryUpdateUserBalance)
                 result = cursor.fetchall()
                 connection.commit()
-                print(result)
+                return result
         except Exception as e:
             print(e)
 
     def delete_transaction(transactionID):
         try:
             with connection.cursor() as cursor:
-                query = f"""
-                        DELETE FROM transactions WHERE id = '{transactionID}' 
+                queryDeleteTransaction = f"""
+                        DELETE FROM transactions WHERE id = {transactionID}
                         """
-                cursor.execute(query)
+                queryGetAmount = f"""
+                SELECT amount FROM transactions WHERE id = {transactionID}
+                """
+                cursor.execute(queryGetAmount)
+                TransactionAmount = cursor.fetchall()[0]["amount"]
+                queryUpdateUserBalance = f"""
+                        UPDATE users SET balance = balance - {TransactionAmount}  WHERE id = 1
+                        """
+                cursor.execute(queryDeleteTransaction)
+                cursor.execute(queryUpdateUserBalance)
                 result = cursor.fetchall()
                 connection.commit()
-                print(result)
+                return result
         except Exception as e:
             print(e)
 
