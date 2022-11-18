@@ -13,5 +13,17 @@ class Users:
         except Exception as e:
             print(e)
 
+    def get_balance():
+        try:
+            with connection.cursor() as cursor:
+                query = f"SELECT balance FROM users WHERE id = 1"
+                cursor.execute(query)
+                result = cursor.fetchall()
+                print(result)
+                connection.commit()
+                return result
+        except Exception as e:
+            print(e)
+
 
 Users.insert_user()

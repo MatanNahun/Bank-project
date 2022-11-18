@@ -27,7 +27,7 @@ USE bank;
 
 
 
--- SELECT * FROM users
+-- SELECT balance FROM users WHERE id = 1
 
 -- UPDATE users SET balance = balance - (SELECT amount FROM transactions WHERE id = 30 ) WHERE id = 1 
 

@@ -3,6 +3,7 @@ from .transactions import Transaction
 
 from DB.TranscationsDbManager import Transactions
 
+# from DB.Users import Users
 
 router = APIRouter()
 
@@ -25,3 +26,8 @@ async def deleteTransaction(id):
 @router.get("/categories")
 def getBreakdownTransctionsByCategory():
     return Transactions.getBreakdownTransctionsByCategory()
+
+
+# @router.get("/balance")
+# def getBalance():
+#     return Users.get_balance()

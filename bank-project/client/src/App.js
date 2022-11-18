@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Transactions from "./components/transactions/Transactions";
 import Breakdown from "./components/breakdown/breakdown";
+import TransactionInput from "./components/operations/transactionInputs";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Link to="/breakdown">breakdown</Link>
         </div>
         <Route exact path="/" render={() => <Transactions />} />
+        <Route exact path="/operations" render={() => <TransactionInput />} />
         <Route exact path="/breakdown" render={() => <Breakdown />} />
       </div>
     </Router>
