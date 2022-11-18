@@ -61,7 +61,7 @@ class Transactions:
         try:
             with connection.cursor() as cursor:
                 query = f"""
-                        SELECT category, SUM(amount) FROM transactions GROUP BY category
+                        SELECT category, SUM(amount) as totalAmount FROM transactions GROUP BY category
                         """
                 cursor.execute(query)
                 result = cursor.fetchall()
