@@ -14,6 +14,6 @@ class Transaction(BaseModel):
 
     def __str__(self):
         return f"""id: {self._id}
-amount: {self._amount}
-vendor: {self._vendor}
-category: {self._category}"""
+                amount: {self._amount}
+                vendor: {self._vendor}
+                category: {self._category}"""

@@ -1,4 +1,4 @@
-from connectionToDB import connection
+from DB.connectionToDB import connection
 
 
 class Users:
@@ -26,4 +26,4 @@ class Users:
             print(e)
 
 
-Users.insert_user()
+# Users.insert_user()

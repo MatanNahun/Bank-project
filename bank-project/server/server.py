@@ -2,12 +2,13 @@ import requests
 import uvicorn
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from routers import transactions_api
+from routers import transactions_api, users_api
 
 
 app = FastAPI()
 
 app.include_router(transactions_api.router)
+app.include_router(users_api.router)
 
 
 @app.get("/")
