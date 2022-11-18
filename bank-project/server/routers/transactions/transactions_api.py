@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request
+from .transactions import Transaction
 
-from DB.Transcations import Transactions
+from DB.TranscationsDbManager import Transactions
 
 
 router = APIRouter()
@@ -12,21 +13,15 @@ def getTransactions():
 
 
 @router.post("/transactions")
-async def addTransaction(request: Request):
-    req = await request.json()
-    Transactions.add_transaction(
-        req["name"], req["amount"], req["category"], req["vendor"]
-    )
-    return req
+async def addTransaction(transaction: Transaction):
+    return Transactions.add_transaction(transaction)
 
 
-@router.delete("/transactions")
-async def deleteTransaction(request: Request):
-    req = await request.json()
-    Transactions.delete_transaction(req["id"])
-    return req
+@router.delete("/transactions/{id}")
+async def deleteTransaction(id):
+    return Transactions.delete_transaction(id)
 
 
-@router.get("/transactions/categories")
+@router.get("/categories")
 def getBreakdownTransctionsByCategory():
     return Transactions.getBreakdownTransctionsByCategory()

@@ -6,6 +6,7 @@ from routers import transactions_api
 
 
 app = FastAPI()
+
 app.include_router(transactions_api.router)
 
 
@@ -40,7 +41,7 @@ def sanity():
 #     return Transactions.getBreakdownTransctionsByCategory()
 
 
-origins = ["http://localhost", "http://localhost:8000"]
+origins = ["http://localhost", "http://localhost:8000", "http://localhost:3000"]
 
 app.add_middleware(
     CORSMiddleware,

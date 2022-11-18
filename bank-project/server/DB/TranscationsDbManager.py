@@ -1,4 +1,5 @@
 from DB.connectionToDB import connection
+from routers.transactions.transactions import Transaction
 
 
 class Transactions:
@@ -16,20 +17,21 @@ class Transactions:
         except Exception as e:
             print(e)
 
-    def add_transaction(name, amount, category, vendor):
+    def add_transaction(transaction: Transaction):
         try:
             with connection.cursor() as cursor:
                 queryInsertTranscation = f"""
-                        INSERT INTO transactions(name, amount, category, vendor, user_id) VALUES ( '{name}', {amount}, '{category}', '{vendor}', 1 )
+                        INSERT INTO transactions(name, amount, category, vendor, user_id) VALUES ( '{transaction.name}', {transaction.amount}, '{transaction.category}', '{transaction.vendor}', 1 )
                         """
                 queryUpdateUserBalance = f"""
-                        UPDATE users SET balance = balance + {amount} WHERE id = 1
+                        UPDATE users SET balance = balance + {transaction.amount} WHERE id = 1
                         """
                 cursor.execute(queryInsertTranscation)
+                transaction.set_id(cursor.lastrowid)
                 cursor.execute(queryUpdateUserBalance)
-                result = cursor.fetchall()
+                cursor.fetchall()
                 connection.commit()
-                return result
+                return transaction
         except Exception as e:
             print(e)
 
