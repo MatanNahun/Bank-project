@@ -3,12 +3,12 @@ import { useState } from "react";
 
 const INITIAL_EMPTY_STRING = "";
 const INITIAL_EMPTY_AMOUNT = 0;
-const ALERT_MESSAGE = "transaction is added successfully!";
-const ALERT_INPUT_ERROR = "please enter all details";
 const ONE = 1;
 const MINUS_ONE = -1;
 const POST_LINK_API = "http://localhost:8000/transactions";
 const ADD_TRANSACTION_ERROR_ALERT = "please wait until transaction is added";
+const ALERT_MESSAGE = "transaction is added successfully!";
+const ALERT_INPUT_ERROR = "please enter all details";
 
 export default function TransactionInput(props) {
   const [transactionInput, setTransactionInput] = useState({
@@ -41,7 +41,6 @@ export default function TransactionInput(props) {
       : (transactionNewData.amount = MINUS_ONE * transactionNewData.amount);
 
     addTransaction(transactionNewData);
-    alert(ALERT_MESSAGE);
   };
 
   const addTransaction = (transaction) => {
@@ -49,9 +48,10 @@ export default function TransactionInput(props) {
       .post(POST_LINK_API, transaction)
       .then(function () {
         props.getBalance();
+        alert(ALERT_MESSAGE);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function () {
+        alert(ADD_TRANSACTION_ERROR_ALERT);
       });
   };
 
