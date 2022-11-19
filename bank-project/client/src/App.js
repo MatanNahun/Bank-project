@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Transactions from "./components/transactions/Transactions";
 import Breakdown from "./components/breakdown/breakdown";
 import TransactionInput from "./components/operations/transactionInputs";
+import Balance from "./components/balance/balance";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Link to="/operations">operations</Link>
           <Link to="/breakdown">breakdown</Link>
         </div>
-        <div>hi</div>
+        <Balance></Balance>
         <Route exact path="/" render={() => <Transactions />} />
         <Route exact path="/operations" render={() => <TransactionInput />} />
         <Route exact path="/breakdown" render={() => <Breakdown />} />

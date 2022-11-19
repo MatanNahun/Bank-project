@@ -25,7 +25,7 @@ export default function Transactions() {
 
   useEffect(() => {
     getAllTransactions();
-  }, [getAllTransactions]);
+  }, []);
 
   return (
     <div className="transactions-container">
