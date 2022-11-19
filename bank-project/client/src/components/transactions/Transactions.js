@@ -7,20 +7,22 @@ export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
 
   const getAllTransactions = async () => {
-    const transactions = await axios.get("http://localhost:8000/transactions");
-    setTransactions(transactions.data);
+    const transactionsNewData = await axios.get(
+      "http://localhost:8000/transactions"
+    );
+    setTransactions(transactionsNewData.data);
   };
 
   const onClickDeleteTransactionHandler = (transactionId) => {
     axios
       .delete(`http://localhost:8000/transactions/${transactionId}`)
       .then(function (response) {
+        getAllTransactions();
         console.log(response);
       })
       .catch(function (error) {
         console.error(error);
       });
-    getAllTransactions();
   };
 
   useEffect(() => {

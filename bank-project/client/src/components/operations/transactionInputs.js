@@ -16,12 +16,17 @@ export default function TransactionInput() {
   };
 
   const onAddTransactionHandler = (event) => {
-    const transaction = { ...transactionInput };
-    event.target.name === "deposit"
-      ? (transaction.amount = 1 * transaction.amount)
-      : (transaction.amount = -1 * transaction.amount);
+    if (transactionInput.name == "") {
+      alert("please enter a name");
+    }
 
-    addTransaction(transaction);
+    const transactionNewData = { ...transactionInput };
+    event.target.name === "deposit"
+      ? (transactionNewData.amount = 1 * transactionNewData.amount)
+      : (transactionNewData.amount = -1 * transactionNewData.amount);
+
+    addTransaction(transactionNewData);
+    alert("you added a new transaction!");
   };
 
   const addTransaction = (transaction) => {
@@ -50,6 +55,7 @@ export default function TransactionInput() {
       <div>
         <input
           className="transaction-amount-input"
+          type="number"
           placeholder="amount name"
           value={transactionInput.amount}
           onChange={hendleInput}

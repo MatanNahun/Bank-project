@@ -6,8 +6,8 @@ export default function Balance() {
   const [balance, setBalance] = useState([]);
 
   const getBalance = async () => {
-    const balance = await axios.get("http://localhost:8000/balance");
-    setBalance(balance.data[0]);
+    const balanceNewData = await axios.get("http://localhost:8000/balance");
+    setBalance(balanceNewData.data[0]);
   };
 
   useEffect(() => {

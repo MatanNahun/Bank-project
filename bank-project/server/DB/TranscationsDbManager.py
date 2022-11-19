@@ -1,10 +1,13 @@
 from DB.connectionToDB import connection
 from routers.transactions.transactions import Transaction
 
+import pymysql
+
 
 class Transactions:
     def get_all_transactions():
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 query = f"""
                         SELECT *
@@ -19,6 +22,7 @@ class Transactions:
 
     def add_transaction(transaction: Transaction):
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 queryInsertTranscation = f"""
                         INSERT INTO transactions(name, amount, category, vendor, user_id) VALUES ( '{transaction.name}', {transaction.amount}, '{transaction.category}', '{transaction.vendor}', 1 )
@@ -37,6 +41,7 @@ class Transactions:
 
     def delete_transaction(transactionID):
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 queryDeleteTransaction = f"""
                         DELETE FROM transactions WHERE id = {transactionID}
@@ -58,17 +63,29 @@ class Transactions:
             print(e)
 
     def getBreakdownTransctionsByCategory():
+        connection = pymysql.connect(
+            host="localhost",
+            user="root",
+            password="",
+            db="bank",
+            charset="utf8",
+            cursorclass=pymysql.cursors.DictCursor,
+        )
+
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 query = f"""
                         SELECT category, SUM(amount) as totalAmount FROM transactions GROUP BY category
                         """
                 cursor.execute(query)
                 result = cursor.fetchall()
+                connection.commit()
                 print(result)
                 return result
         except Exception as e:
             print(e)
+            print("why")
 
 
 # Transactions.add_transaction("car", 10, "music", "dekel")

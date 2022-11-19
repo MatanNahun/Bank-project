@@ -7,6 +7,7 @@ class Categories:
     def insert_categories():
         for category in categoriesInitialator:
             try:
+                connection.ping()
                 with connection.cursor() as cursor:
                     query = f'INSERT INTO categories(name) VALUES("{category}");'
                     cursor.execute(query)
@@ -18,6 +19,7 @@ class Categories:
 
     def get_all_categories():
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 query = f"""
                         SELECT *
@@ -31,9 +33,10 @@ class Categories:
 
     def getBreakdownTransctionsByCategory():
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 query = f"""
-                            SELECT category, SUM(amount) FROM transactions GROUP BY category
+                            SELECT category, SUM(amount) as totalAmount FROM transactions GROUP BY category
                             """
                 cursor.execute(query)
                 result = cursor.fetchall()

@@ -25,7 +25,9 @@ USE bank;
 
 
 
-SELECT * FROM transactions
+-- SELECT category, SUM(amount) as totalAmount FROM transactions GROUP BY category
+
+-- UPDATE users SET balance = 0 WHERE id = 1
 
 -- SELECT balance FROM users WHERE id = 1
 

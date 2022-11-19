@@ -4,6 +4,7 @@ from DB.connectionToDB import connection
 class Users:
     def insert_user():
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 query = f"INSERT INTO users(balance) VALUES(0);"
                 cursor.execute(query)
@@ -15,6 +16,7 @@ class Users:
 
     def get_balance():
         try:
+            connection.ping()
             with connection.cursor() as cursor:
                 query = f"SELECT balance FROM users WHERE id = 1"
                 cursor.execute(query)
