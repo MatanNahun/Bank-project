@@ -3,26 +3,29 @@ import { useState, useEffect } from "react";
 
 import Transaction from "../transaction/transaction";
 
+const GET_TRANSACTIONS_API = "http://localhost:8000/transactions";
+const DELETE_TRANSACTION_API = "http://localhost:8000/transactions";
+const ERROR_ALERT = "please until trasaction is updated";
+const SUCCESS_ALERT = "transaction deleted successfully!";
+
 export default function Transactions(props) {
   const [transactions, setTransactions] = useState([]);
 
   const getAllTransactions = async () => {
-    const transactionsNewData = await axios.get(
-      "http://localhost:8000/transactions"
-    );
+    const transactionsNewData = await axios.get(GET_TRANSACTIONS_API);
     setTransactions(transactionsNewData.data);
   };
 
   const onClickDeleteTransactionHandler = (transactionId) => {
     axios
-      .delete(`http://localhost:8000/transactions/${transactionId}`)
-      .then(function (response) {
+      .delete(`${DELETE_TRANSACTION_API}/${transactionId}`)
+      .then(function () {
+        alert(SUCCESS_ALERT);
         getAllTransactions();
         props.getBalance();
-        console.log(response);
       })
-      .catch(function (error) {
-        console.error(error);
+      .catch(function () {
+        alert(ERROR_ALERT);
       });
   };
 
@@ -32,7 +35,7 @@ export default function Transactions(props) {
 
   return (
     <div className="transactions-container">
-      all transactions
+      all transactions:
       <div>
         {" "}
         {transactions.map((transaction) => (

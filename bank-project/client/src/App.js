@@ -8,11 +8,13 @@ import Breakdown from "./components/breakdown/breakdown";
 import TransactionInput from "./components/operations/transactionInputs";
 import Balance from "./components/balance/balance";
 
+const GET_BALANCE_API = "http://localhost:8000/balance";
+
 function App() {
   const [balance, setBalance] = useState(0);
 
   const getBalance = async () => {
-    const balanceNewData = await axios.get("http://localhost:8000/balance");
+    const balanceNewData = await axios.get(GET_BALANCE_API);
     setBalance(balanceNewData.data[0]);
   };
 

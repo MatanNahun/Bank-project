@@ -1,6 +1,3 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-
 export default function Transaction(props) {
   const onClickDeleteTransactionHandler = () => {
     props.onClickDeleteTransactionHandler(props.id);
