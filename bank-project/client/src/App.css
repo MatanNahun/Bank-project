@@ -1,13 +1,29 @@
+.App {
+  text-align: center;
+  background-image: url(https://imageio.forbes.com/specials-images/imageserve/60818e93e5c55324867cbcb0/Close-Up-Of-Human-Hand-Against-Blue-Background/960x0.jpg?format=jpg&width=960);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 #main-links > a {
-  margin: 10px;
-  color: #000596;
-  text-shadow: 1px 0 #ecf0f1;
+  margin: 15px;
+  color: #ff6a00;
+  text-shadow: -1px -1px 0 #ecf0f1, 1px -1px 0 #ecf0f1, -1px 1px 0 #ecf0f1,
+    1px 1px 0 #ecf0f1;
   font-weight: bold;
+  font-size: 32px;
 }
 
 * {
   text-decoration: none;
-  font-family: "Bungee";
+  font-family: "Arial Black";
 }
 
 a {

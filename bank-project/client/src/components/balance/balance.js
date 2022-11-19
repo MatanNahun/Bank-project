@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "./balance.css";
 
 export default function Balance() {
   const [balance, setBalance] = useState([]);
@@ -11,11 +12,11 @@ export default function Balance() {
 
   useEffect(() => {
     getBalance();
-  }, [balance]);
+  }, []);
 
   return (
     <div className="balance-container">
-      <div> Balance: {balance.balance}</div>
+      <div> Balance: $ {balance.balance}</div>
     </div>
   );
 }

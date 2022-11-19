@@ -25,7 +25,7 @@ USE bank;
 
 
 
--- SELECT * FROM transactions
+SELECT * FROM transactions
 
 -- SELECT balance FROM users WHERE id = 1
 
@@ -35,4 +35,4 @@ USE bank;
 
 
 
--- UPDATE users SET balance = 0 WHERE id = 1
+-- UPDATE transactions SET amount = 5 WHERE id = 57
