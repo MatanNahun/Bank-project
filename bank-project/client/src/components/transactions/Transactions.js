@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import Transaction from "../transaction/transaction";
 
-export default function Transactions() {
+export default function Transactions(props) {
   const [transactions, setTransactions] = useState([]);
 
   const getAllTransactions = async () => {
@@ -18,6 +18,7 @@ export default function Transactions() {
       .delete(`http://localhost:8000/transactions/${transactionId}`)
       .then(function (response) {
         getAllTransactions();
+        props.getBalance();
         console.log(response);
       })
       .catch(function (error) {

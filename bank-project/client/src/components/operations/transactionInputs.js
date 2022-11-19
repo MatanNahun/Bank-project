@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function TransactionInput() {
+export default function TransactionInput(props) {
   const [transactionInput, setTransactionInput] = useState({
     name: "",
     amount: "",
@@ -16,8 +16,14 @@ export default function TransactionInput() {
   };
 
   const onAddTransactionHandler = (event) => {
-    if (transactionInput.name == "") {
-      alert("please enter a name");
+    if (
+      transactionInput.name == "" ||
+      transactionInput.amount == 0 ||
+      transactionInput.vendor == "" ||
+      transactionInput.category == ""
+    ) {
+      alert("please enter all details");
+      return;
     }
 
     const transactionNewData = { ...transactionInput };
@@ -34,6 +40,7 @@ export default function TransactionInput() {
       .post("http://localhost:8000/transactions", transaction)
       .then(function (response) {
         console.log(response);
+        props.getBalance();
       })
       .catch(function (error) {
         console.error(error);
