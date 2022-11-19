@@ -1,30 +1,31 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import Transaction from "../transaction/transaction";
+
 export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
 
-  const clickOperationHandler = (event) => {
-    console.log(event.target);
+  const getAllTransactions = async () => {
+    const transactions = await axios.get("http://localhost:8000/transactions");
+    setTransactions(transactions.data);
+  };
+
+  const onClickDeleteTransactionHandler = (transactionId) => {
     axios
-      .delete("http://localhost:8000/transactions")
+      .delete(`http://localhost:8000/transactions/${transactionId}`)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.error(error);
       });
+    getAllTransactions();
   };
 
   useEffect(() => {
-    const getAllTransactions = async () => {
-      const transactions = await axios.get(
-        "http://localhost:8000/transactions"
-      );
-      setTransactions(transactions.data);
-    };
     getAllTransactions();
-  }, []);
+  }, [getAllTransactions]);
 
   return (
     <div className="transactions-container">
@@ -33,8 +34,14 @@ export default function Transactions() {
         {" "}
         {transactions.map((transaction) => (
           <div>
-            {transaction.name} | {transaction.category} | {transaction.amount}
-            <button onClick={clickOperationHandler}>delete</button>
+            <Transaction
+              key={transaction.id}
+              name={transaction.name}
+              id={transaction.id}
+              category={transaction.category}
+              amount={transaction.amount}
+              onClickDeleteTransactionHandler={onClickDeleteTransactionHandler}
+            ></Transaction>
           </div>
         ))}
       </div>

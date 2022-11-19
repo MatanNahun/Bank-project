@@ -14,6 +14,7 @@ function App() {
           <Link to="/operations">operations</Link>
           <Link to="/breakdown">breakdown</Link>
         </div>
+        <div>hi</div>
         <Route exact path="/" render={() => <Transactions />} />
         <Route exact path="/operations" render={() => <TransactionInput />} />
         <Route exact path="/breakdown" render={() => <Breakdown />} />

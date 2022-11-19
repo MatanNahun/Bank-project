@@ -25,7 +25,7 @@ USE bank;
 
 
 
-
+-- SELECT * FROM transactions
 
 -- SELECT balance FROM users WHERE id = 1
 
