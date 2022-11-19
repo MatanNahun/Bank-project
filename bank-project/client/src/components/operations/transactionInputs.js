@@ -34,7 +34,6 @@ export default function TransactionInput(props) {
       alert(ALERT_INPUT_ERROR);
       return;
     }
-
     const transactionNewData = { ...transactionInput };
     event.target.name === "deposit"
       ? (transactionNewData.amount = ONE * transactionNewData.amount)
