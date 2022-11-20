@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 
+import "./transactionInputs.css";
+
 const INITIAL_EMPTY_STRING = "";
 const INITIAL_EMPTY_AMOUNT = 0;
 const ONE = 1;
@@ -56,7 +58,7 @@ export default function TransactionInput(props) {
 
   return (
     <div className="insert-transaction-container">
-      insert transactions
+      <div className="insert-transactions-title">insert transactions:</div>
       <div>
         <input
           className="transaction-name-input"

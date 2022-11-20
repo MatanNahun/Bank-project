@@ -1,0 +1,132 @@
+/* CSS */
+#deposit-btn {
+  appearance: button;
+  background-color: #56d364;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 8px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 10%;
+}
+
+#deposit-btn:after {
+  background-clip: padding-box;
+  background-color: #3fb950;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+#deposit-btn:main,
+#deposit-btn:focus {
+  user-select: auto;
+}
+
+#deposit-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+#deposit-btn:disabled {
+  cursor: auto;
+}
+
+#withraw-btn {
+  appearance: button;
+  background-color: #c30707;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 3px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 10%;
+}
+
+#withraw-btn:after {
+  background-clip: padding-box;
+  background-color: #b30000;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+#withraw-btn:main,
+#withraw-btn:focus {
+  user-select: auto;
+}
+
+#withraw-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+#withraw-btn:disabled {
+  cursor: auto;
+}
+
+.insert-transaction-container {
+  margin: 20px;
+}
+
+.insert-transactions-title {
+  margin: 1.5%;
+  color: #0d419d;
+  font-size: xx-large;
+  text-shadow: -1px -1px 0 #a2acf2, 1px -1px 0 #0723d8, -1px 1px 0 #031aba,
+    1px 1px 0 #00108c;
+}

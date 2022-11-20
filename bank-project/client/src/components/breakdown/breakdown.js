@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import "./breakdown.css";
+
 export default function Breakdown() {
   const [breakdown, setBreakdown] = useState([]);
 
@@ -14,7 +16,7 @@ export default function Breakdown() {
 
   return (
     <div className="breakdown-container">
-      breakdown
+      <div className="breakdown-title">breakdown</div>
       <div>
         {" "}
         {breakdown.map((singleBreakdown) => (

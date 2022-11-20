@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import "./Transactions.css";
 import Transaction from "../transaction/transaction";
 
 const GET_TRANSACTIONS_API = "http://localhost:8000/transactions";
@@ -35,7 +36,7 @@ export default function Transactions(props) {
 
   return (
     <div className="transactions-container">
-      all transactions:
+      <div className="all-transactions-title">all transactions:</div>
       <div>
         {" "}
         {transactions.map((transaction) => (
