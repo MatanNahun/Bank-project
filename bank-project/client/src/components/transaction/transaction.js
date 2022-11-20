@@ -6,15 +6,28 @@ export default function Transaction(props) {
   };
 
   function isPositive(amount) {
-    return amount < 0 ? "withraw" : "deposit";
+    return amount < 0
+      ? "withraw transaction-amount"
+      : "deposit transaction-amount";
   }
 
   return (
     <div className="transaction-container">
-      <div>{props.name}</div>{" "}
-      <div className={isPositive(props.amount)}>{props.amount}</div>
-      <div>{props.category}</div>
-      <button onClick={onClickDeleteTransactionHandler}>delete</button>
+      <div className="transaction-card">
+        <div className="transaction-name">
+          {props.name}
+          <div className="category-name">{props.category}</div>
+        </div>
+
+        <div className={isPositive(props.amount)}>{props.amount}</div>
+
+        <button
+          className="delete-btn"
+          onClick={onClickDeleteTransactionHandler}
+        >
+          delete
+        </button>
+      </div>
     </div>
   );
 }
