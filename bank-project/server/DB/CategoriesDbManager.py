@@ -1,4 +1,4 @@
-from connectionToDB import connection
+from DB.connectionToDB import connection
 
 categoriesInitialator = ["transportation", "food", "entertainment", "clothes", "other"]
 
@@ -44,8 +44,3 @@ class Categories:
                 return result
         except Exception as e:
             print(e)
-
-
-# Categories.insert_categories()
-
-# Categories.get_all_categories()

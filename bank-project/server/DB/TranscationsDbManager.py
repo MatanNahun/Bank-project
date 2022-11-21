@@ -1,10 +1,19 @@
 from DB.connectionToDB import connection
 from routers.transactions.transactions import Transaction
+from routers.errors import transactionIdNotExist
 
 import pymysql
 
 
 class Transactions:
+    def is_transaction_exist(transaction_id: int) -> bool:
+        with connection.cursor() as cursor:
+            query = f"SELECT * FROM transactions WHERE id = {transaction_id}"
+            cursor.execute(query)
+            result = cursor.fetchall()
+            print(result)
+            return len(result) != 0
+
     def get_all_transactions():
         try:
             connection.ping()
@@ -40,6 +49,8 @@ class Transactions:
             print(e)
 
     def delete_transaction(transactionID):
+        if not Transactions.is_transaction_exist(transactionID):
+            raise transactionIdNotExist()
         try:
             connection.ping()
             with connection.cursor() as cursor:
@@ -85,7 +96,6 @@ class Transactions:
                 return result
         except Exception as e:
             print(e)
-            print("why")
 
 
 # Transactions.add_transaction("car", 10, "music", "dekel")

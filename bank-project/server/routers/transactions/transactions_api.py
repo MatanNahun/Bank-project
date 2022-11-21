@@ -1,9 +1,9 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, HTTPException, status
+from ..errors import transactionIdNotExist
 from .transactions import Transaction
 
 from DB.TranscationsDbManager import Transactions
 
-# from DB.Users import Users
 
 router = APIRouter()
 
@@ -20,14 +20,8 @@ async def addTransaction(transaction: Transaction):
 
 @router.delete("/transactions/{id}")
 async def deleteTransaction(id):
-    return Transactions.delete_transaction(id)
-
-
-@router.get("/categories")
-def getBreakdownTransctionsByCategory():
-    return Transactions.getBreakdownTransctionsByCategory()
-
-
-# @router.get("/balance")
-# def getBalance():
-#     return Users.get_balance()
+    try:
+        return Transactions.delete_transaction(id)
+    except transactionIdNotExist as e:
+        print(e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=e.message)

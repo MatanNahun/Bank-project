@@ -45,6 +45,7 @@ export default function Transactions(props) {
               key={transaction.id}
               name={transaction.name}
               id={transaction.id}
+              vendor={transaction.vendor}
               category={transaction.category}
               amount={transaction.amount}
               onClickDeleteTransactionHandler={onClickDeleteTransactionHandler}

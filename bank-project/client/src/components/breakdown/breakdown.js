@@ -8,7 +8,9 @@ export default function Breakdown() {
 
   useEffect(() => {
     const getBreakdownExpensesByCategory = async () => {
-      const breakdown = await axios.get("http://localhost:8000/categories");
+      const breakdown = await axios.get(
+        "http://localhost:8000/categories/breakdown"
+      );
       setBreakdown(breakdown.data);
     };
     getBreakdownExpensesByCategory();

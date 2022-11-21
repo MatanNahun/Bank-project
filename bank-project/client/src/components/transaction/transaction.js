@@ -16,7 +16,10 @@ export default function Transaction(props) {
       <div className="transaction-card">
         <div className="transaction-name">
           {props.name}
-          <div className="category-name">{props.category}</div>
+          <div className="category-name">
+            {" "}
+            {props.category} - {props.vendor}
+          </div>
         </div>
 
         <div className={isPositive(props.amount)}>{props.amount}</div>
