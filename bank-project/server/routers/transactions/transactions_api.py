@@ -8,18 +8,24 @@ from DB.TranscationsDbManager import Transactions
 router = APIRouter()
 
 
-@router.get("/transactions")
+@router.get("/transactions", status_code=status.HTTP_200_OK)
 def getTransactions():
-    return Transactions.get_all_transactions()
+    try:
+        return Transactions.get_all_transactions()
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=e)
 
 
-@router.post("/transactions")
-async def addTransaction(transaction: Transaction):
-    return Transactions.add_transaction(transaction)
+@router.post("/transactions", status_code=status.HTTP_201_CREATED)
+def addTransaction(transaction: Transaction):
+    try:
+        return Transactions.add_transaction(transaction)
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=e)
 
 
-@router.delete("/transactions/{id}")
-async def deleteTransaction(id):
+@router.delete("/transactions/{id}", status_code=status.HTTP_200_OK)
+def deleteTransaction(id):
     try:
         return Transactions.delete_transaction(id)
     except transactionIdNotExist as e:

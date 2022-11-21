@@ -28,6 +28,7 @@ class Transactions:
                 return result
         except Exception as e:
             print(e)
+            raise Exception("error: problem getting to DB")
 
     def add_transaction(transaction: Transaction):
         try:
@@ -47,6 +48,7 @@ class Transactions:
                 return transaction
         except Exception as e:
             print(e)
+            raise Exception("error: problem with input transction")
 
     def delete_transaction(transactionID):
         if not Transactions.is_transaction_exist(transactionID):
@@ -72,17 +74,9 @@ class Transactions:
                 return result
         except Exception as e:
             print(e)
+            raise Exception("error: problem getting to DB")
 
     def getBreakdownTransctionsByCategory():
-        connection = pymysql.connect(
-            host="localhost",
-            user="root",
-            password="",
-            db="bank",
-            charset="utf8",
-            cursorclass=pymysql.cursors.DictCursor,
-        )
-
         try:
             connection.ping()
             with connection.cursor() as cursor:
@@ -96,9 +90,4 @@ class Transactions:
                 return result
         except Exception as e:
             print(e)
-
-
-# Transactions.add_transaction("car", 10, "music", "dekel")
-# Transactions.get_all_transactions()
-# Transactions.delete_transaction(22)
-# Transactions.getBreakdownTransctionsByCategory()
+            raise Exception("error: problem getting to DB")
