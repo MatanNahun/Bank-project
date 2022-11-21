@@ -21,11 +21,11 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  padding: 3px;
   text-align: center;
   background-color: #f5954d;
   width: 20%;
-  margin: 1.5%;
+  margin: 0.5%;
   margin-left: 40%;
 }
 
@@ -85,7 +85,7 @@
   opacity: 0.5;
 }
 
-input {
+/* input {
   box-shadow: inset #abacaf 0 0 0 2px;
   border: 0;
   background: #fff;
@@ -111,3 +111,30 @@ input:focus {
   outline: 0;
   box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
 }
+
+select {
+  box-shadow: inset #abacaf 0 0 0 2px;
+  border: 0;
+  background: #fff;
+  appearance: none;
+  width: 40%;
+  position: relative;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  transition: all 0.2s ease;
+}
+
+select:hover {
+  box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+}
+
+select:focus {
+  background: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+} */

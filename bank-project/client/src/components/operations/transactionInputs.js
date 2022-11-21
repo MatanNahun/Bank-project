@@ -96,6 +96,18 @@ export default function TransactionInput(props) {
           name="category"
         />
       </div>
+      <div>
+        {/* <select>
+          <option value="" hidden>
+            Select category...
+          </option>
+          <option value="Salary">Salary</option>
+          <option value="Food">Food</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Technology">Technology</option>
+          <option value="Other">Other</option>
+        </select> */}
+      </div>
       <button onClick={onAddTransactionHandler} name="deposit" id="deposit-btn">
         Deposit
       </button>{" "}

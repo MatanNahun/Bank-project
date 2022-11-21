@@ -130,3 +130,57 @@
   text-shadow: -1px -1px 0 #a2acf2, 1px -1px 0 #0723d8, -1px 1px 0 #031aba,
     1px 1px 0 #00108c;
 }
+
+input {
+  box-shadow: inset #abacaf 0 0 0 2px;
+  border: 0;
+  background: #fff;
+  appearance: none;
+  width: 40%;
+  position: relative;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  transition: all 0.2s ease;
+}
+
+input:hover {
+  box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+}
+
+input:focus {
+  background: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+}
+
+select {
+  box-shadow: inset #abacaf 0 0 0 2px;
+  border: 0;
+  background: #fff;
+  appearance: none;
+  width: 42%;
+  position: relative;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  transition: all 0.2s ease;
+}
+
+select:hover {
+  box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+}
+
+select:focus {
+  background: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+}
