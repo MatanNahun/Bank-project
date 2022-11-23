@@ -96,8 +96,12 @@ export default function TransactionInput(props) {
           name="category"
         />
       </div>
-      <div>
-        {/* <select>
+      {/* <div>
+        <select
+          name="category"
+          value={transactionInput.category}
+          onChange={hendleInput}
+        >
           <option value="" hidden>
             Select category...
           </option>
@@ -106,8 +110,8 @@ export default function TransactionInput(props) {
           <option value="Shopping">Shopping</option>
           <option value="Technology">Technology</option>
           <option value="Other">Other</option>
-        </select> */}
-      </div>
+        </select>
+      </div> */}
       <button onClick={onAddTransactionHandler} name="deposit" id="deposit-btn">
         Deposit
       </button>{" "}

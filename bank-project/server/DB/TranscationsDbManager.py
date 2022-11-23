@@ -11,7 +11,6 @@ class Transactions:
             query = f"SELECT * FROM transactions WHERE id = {transaction_id}"
             cursor.execute(query)
             result = cursor.fetchall()
-            print(result)
             return len(result) != 0
 
     def get_all_transactions():
@@ -24,10 +23,8 @@ class Transactions:
                         """
                 cursor.execute(query)
                 result = cursor.fetchall()
-                print(result)
                 return result
         except Exception as e:
-            print(e)
             raise Exception("error: problem getting to DB")
 
     def add_transaction(transaction: Transaction):
@@ -47,7 +44,6 @@ class Transactions:
                 connection.commit()
                 return transaction
         except Exception as e:
-            print(e)
             raise Exception("error: problem with input transction")
 
     def delete_transaction(transactionID):
@@ -73,7 +69,6 @@ class Transactions:
                 connection.commit()
                 return result
         except Exception as e:
-            print(e)
             raise Exception("error: problem getting to DB")
 
     def getBreakdownTransctionsByCategory():
@@ -86,8 +81,6 @@ class Transactions:
                 cursor.execute(query)
                 result = cursor.fetchall()
                 connection.commit()
-                print(result)
                 return result
         except Exception as e:
-            print(e)
             raise Exception("error: problem getting to DB")

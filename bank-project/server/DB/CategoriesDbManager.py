@@ -1,6 +1,12 @@
 from DB.connectionToDB import connection
 
-categoriesInitialator = ["transportation", "food", "entertainment", "clothes", "other"]
+categoriesInitialator = [
+    "transportation",
+    "food",
+    "entertainment",
+    "clothes",
+    "other",
+]  # to DB
 
 
 class Categories:
@@ -11,9 +17,8 @@ class Categories:
                 with connection.cursor() as cursor:
                     query = f'INSERT INTO categories(name) VALUES("{category}");'
                     cursor.execute(query)
-                    result = cursor.fetchall()
+                    cursor.fetchall()
                     connection.commit()
-                    print(result)
             except Exception as e:
                 print(e)
 
@@ -26,8 +31,7 @@ class Categories:
                         FROM Categories
                         """
                 cursor.execute(query)
-                CategoriesTable = cursor.fetchall()
-                print(CategoriesTable)
+                return cursor.fetchall()
         except Exception as e:
             print(e)
 
@@ -40,7 +44,6 @@ class Categories:
                             """
                 cursor.execute(query)
                 result = cursor.fetchall()
-                print(result)
                 return result
         except Exception as e:
             print(e)
