@@ -30,6 +30,8 @@ get a breakdown by category for all the transaction:
 ![image](https://user-images.githubusercontent.com/70105078/201467773-36247067-2e4a-48bf-ad45-b5089a8c7c46.png)
 ![image](https://user-images.githubusercontent.com/70105078/201467796-8d87363e-3c9e-48d0-b69e-11f93563a45c.png)
 ![image](https://user-images.githubusercontent.com/70105078/201467810-3414f503-7749-48db-b42d-c8cda3bfa6e1.png)
+![image](https://user-images.githubusercontent.com/70105078/203828161-b33ecefd-bf13-4094-8ee1-0eee05431916.png)
+
 
 
 # Data Base
