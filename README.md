@@ -10,7 +10,7 @@
 
 # Decription
 insert new trascation:
-![image](![bank-inserTransaction](https://user-images.githubusercontent.com/70105078/203824700-2d00a107-c2bd-4436-892b-af6ed12282a8.png)
+![bank-inserTransaction](https://user-images.githubusercontent.com/70105078/203824700-2d00a107-c2bd-4436-892b-af6ed12282a8.png)
 
 then watch all your transactions:
 ![image](![bank-transactions](https://user-images.githubusercontent.com/70105078/203824781-aac3431f-829c-49c7-ab25-a9aec8ab192f.png)
