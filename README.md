@@ -13,10 +13,10 @@ insert new trascation:
 ![image](![bank-inserTransaction](https://user-images.githubusercontent.com/70105078/203824700-2d00a107-c2bd-4436-892b-af6ed12282a8.png)
 
 then watch all your transactions:
-![image](![bank-transactions](https://user-images.githubusercontent.com/70105078/203824781-aac3431f-829c-49c7-ab25-a9aec8ab192f.png))
+![image](![bank-transactions](https://user-images.githubusercontent.com/70105078/203824781-aac3431f-829c-49c7-ab25-a9aec8ab192f.png)
 
 get a breakdown by category for all the transaction:
-![image](![bank-breakdown](https://user-images.githubusercontent.com/70105078/203824829-a141d201-aebe-4395-8682-847afc63da12.png))
+![image](![bank-breakdown](https://user-images.githubusercontent.com/70105078/203824829-a141d201-aebe-4395-8682-847afc63da12.png)
 
 # Feutures:
 - present the current balance(livly update)
